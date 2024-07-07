@@ -1,10 +1,43 @@
-# 05 Third-Party APIs: Task Board
+# Task Board
 
-## Your Task
+Within this repository is the source code for a Kanban style task board web application. Within this web page, a user will allow be able add and manage their upcoming tasks into predefined categories. This application was built using HTML, CSS & JavaScript with various 3rd party integrated APIs.
 
-Create a simple task board application that allows a team to manage project tasks by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+## Features
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with dates. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+Within this web application, a user can add in tasks with the following details:
+- Title
+- Description
+- Due date
+
+These tasks will be rendered as 'card' elements that can be sorted into the following 3 swim lanes, each representing their own category:
+1. To Do
+2. In Progress
+3. Done
+
+Users will be able to drag and drop the card elements as they desire into any of the swim lanes.
+This application will also warn users with a yellow card if there is a task due within 3 days or a red card if the task is overdue or due within the same day.
+
+## External Resources
+This application uses a wide array of 3rd party web-driven APIs. See below for the official documentation and GitHub repositories for the resources used within this project.
+|API|Documentation|Repository|
+|---|---|---|
+|[Bootstrap 5.1.3](https://getbootstrap.com/)|[Docs](https://getbootstrap.com/docs/5.1/getting-started/introduction/)|https://github.com/twbs/bootstrap|
+|[FontAwesome 5.8.1](https://fontawesome.com/)|[Docs](https://docs.fontawesome.com/)|https://github.com/FortAwesome/Font-Awesome|
+|[jQuery 3.4.1](https://jquery.com/)|[Docs](https://api.jquery.com/)|https://github.com/jquery/jquery|
+|[jQuery UI 1.13.1](https://jqueryui.com/) | [Docs](https://api.jqueryui.com/)|https://github.com/jquery/jquery-ui|
+|[Day.js 1.11.3](https://day.js.org/en/) | [Docs](https://day.js.org/docs/en/installation/browser)|https://github.com/iamkun/dayjs/|
+
+## Deploy
+This repository contains the source code for the webpage, written in HTML, CSS and JavaScript and various 3rd party APIs. The final rendered webpage can be located at https://kevinvongmany.github.io/task-board-manager/.
+
+Additionally users can access the source code in the final webpage by pressing F12, CTRL+SHIFT+I (Windows) or CMD+SHIFT+I (MacOS) on any Chrome/Firefox browsers (or any Chromium driven browser). Alternatively modern web browsers can access the source code through the context menu (right-click) -> View page source.
+
+## Samples
+Samples of the task board application can seen below:
+
+### Task Board
+#### Empty
+![Sample of webpage with no tasks populated](./docs/sample-no-tasks.png)
 
 ## User Story
 
@@ -33,68 +66,3 @@ THEN the task is removed from the task board and will not be added back after re
 WHEN I refresh the page
 THEN the saved tasks persist
 ```
-
-The following animation demonstrates the application functionality:
-
-![A user adds three tasks to the task board and changes the state of two of them to in progress and then completion. The user then deletes the two cards in the done column.](./Assets/05-third-party-apis-homework-demo.gif)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses the Day.js library to work with dates
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the Challenge instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
