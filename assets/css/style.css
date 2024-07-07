@@ -9,6 +9,7 @@ body {
 
 .task-card {
   margin: 0 auto;
+  z-index: 2; /* To make sure the card is always on top */
 }
 
 .task-card:hover {
