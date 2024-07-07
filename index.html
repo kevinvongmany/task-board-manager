@@ -47,7 +47,7 @@
                 <textarea class="form-control" id="task-description" name="task-description" rows="4"></textarea>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-success">Add Task</button>
+                <button type="submit" class="btn btn-success" id="add-task">Add Task</button>
               </div>
             </form>
           </div>
@@ -61,7 +61,7 @@
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">To Do</h2>
           </div>
-          <div class="card-body bg-light">
+          <div class="card-body bg-light" data-status="todo">
             <div id="todo-cards"></div>
           </div>
         </div>
@@ -71,7 +71,7 @@
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">In Progress</h2>
           </div>
-          <div class="card-body bg-light">
+          <div class="card-body bg-light" data-status="in-progress">
             <div id="in-progress-cards"></div>
           </div>
         </div>
@@ -81,7 +81,7 @@
             <div class="card-header bg-white">
               <h2 class="card-title mb-1">Done</h2>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body bg-light" data-status="done">
               <div id="done-cards"></div>
           </div>
           </div>
