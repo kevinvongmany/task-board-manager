@@ -19,14 +19,26 @@ function createTaskCard(task) {
     const taskCard = $("<div>").addClass("card text-center task-card mb-3 z-index-1").attr("id", task.id);
     const taskTitle = $("<h3>").addClass("card-header mb-3").text(task.title);
     const taskDescription = $("<p>").addClass("mb-2").text(task.description);
-    const dueDate = $("<p>").addClass("mb-2").text(task.dueDate);
-    const deleteDiv = $("<div>").addClass("text-center border-white mb-2");
-    const deleteButton = $("<button>").addClass("btn btn-danger delete-task").text("Delete");
+    const dueDate = $("<p>").addClass("mb-2").text(reformatDate(task.dueDate));
+    const deleteDiv = $("<div>").addClass("text-center mb-2");
+    const deleteButton = $("<button>").addClass("btn btn-danger border-white delete-task").text("Delete");
     deleteDiv.append(deleteButton);
     taskCard.append(taskTitle, taskDescription, dueDate, deleteDiv);
     $(`#${task.status}-cards`).append(taskCard);
     return taskCard;
 
+}
+
+function updateTaskCardColour(taskCard, date) {
+    const today = dayjs();
+    const dueDate = dayjs(date);
+    const daysUntilDue = dueDate.diff(today, "day");
+    console.log(daysUntilDue);
+    if (daysUntilDue <= 0) {
+        taskCard.addClass("bg-danger");
+    } else if (daysUntilDue <= 3) {
+        taskCard.addClass("bg-warning");
+    }
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -35,7 +47,15 @@ function renderTaskList() {
     if (taskList) {
         taskList.forEach(task => {
             let taskCard = createTaskCard(task);
-            taskCard.draggable();
+            updateTaskCardColour(taskCard, task.dueDate);
+            taskCard.draggable(
+                {
+                    revert: "invalid",
+                    cursor: "move",
+                    opacity: 0.9,
+                    zIndex: 3
+                }
+            );
             
         });
     }
@@ -62,6 +82,10 @@ function handleAddTask(event){
     $("#formModal").modal("hide");
     renderTaskList();
 
+}
+
+function reformatDate(date) {
+    return dayjs(date).format("DD/MM/YYYY")
 }
 
 // Todo: create a function to handle deleting a task
@@ -93,10 +117,10 @@ function handleDrop(event, ui) {
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
     renderTaskList();
-    console.log("initial render of task list complete");
     $("#add-task").on("click", handleAddTask);
     $(document).on("click", ".delete-task", handleDeleteTask);
     $(".card-body").droppable({
+        accept: ".task-card",
         drop: handleDrop
     });
 
