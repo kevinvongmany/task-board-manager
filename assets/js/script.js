@@ -31,10 +31,14 @@ function reformatDate(date) {
     return dayjs(date).format("DD/MM/YYYY")
 }
 
-function updateTaskCardColour(taskCard, date) {
+function updateTaskCardColour(taskCard, task) {
     const today = dayjs();
-    const dueDate = dayjs(date);
+    const dueDate = dayjs(task.date);
     const daysUntilDue = dueDate.diff(today, "day");
+    if (task.status === "done") {
+        taskCard.addClass("text-white bg-success");
+        return;
+    }
     if (daysUntilDue <= 0) {
         taskCard.addClass("bg-danger");
     } else if (daysUntilDue <= 3) {
@@ -47,7 +51,7 @@ function renderTaskList() {
     if (taskList) {
         taskList.forEach(task => {
             let taskCard = createTaskCard(task);
-            updateTaskCardColour(taskCard, task.dueDate);
+            updateTaskCardColour(taskCard, task);
             taskCard.draggable({
                 revert: "invalid",
                 cursor: "move",
@@ -73,11 +77,11 @@ function handleAddTask(event){
     }
     taskList.push(task);
     localStorage.setItem("tasks", JSON.stringify(taskList));
+    renderTaskList();
     $("#task-name").val("");
     $("#task-due-date").val("");
     $("#task-description").val("");
     $("#formModal").modal("hide");
-    renderTaskList();
 
 }
 
@@ -93,7 +97,6 @@ function handleDeleteTask(event){
 function handleDrop(event, ui) {
     event.preventDefault();
     const taskId = ui.draggable.attr("id");
-    const status = $(this);
     const task = taskList.find(task => task.id === parseInt(taskId)); 
     task.status = this.dataset.status;
     localStorage.setItem("tasks", JSON.stringify(taskList));
@@ -103,7 +106,7 @@ function handleDrop(event, ui) {
 
 $(document).ready(function () {
     renderTaskList();
-    $("#add-task").on("click", handleAddTask);
+    $("#task-form").on("submit", handleAddTask);
     $(document).on("click", ".delete-task", handleDeleteTask);
     $(".card-body").droppable({
         accept: ".task-card",
