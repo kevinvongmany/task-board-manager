@@ -33,7 +33,7 @@ function reformatDate(date) {
 
 function updateTaskCardColour(taskCard, task) {
     const today = dayjs();
-    const dueDate = dayjs(task.date);
+    const dueDate = dayjs(task.dueDate);
     const daysUntilDue = dueDate.diff(today, "day");
     if (task.status === "done") {
         taskCard.addClass("text-white bg-success");
@@ -87,6 +87,7 @@ function handleAddTask(event){
 
 
 function handleDeleteTask(event){
+    event.preventDefault();
     const taskId = $(this).closest(".task-card").attr("id");
     taskList = taskList.filter(task => task.id !== parseInt(taskId));
     localStorage.setItem("tasks", JSON.stringify(taskList));
