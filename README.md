@@ -36,9 +36,14 @@ Additionally users can access the source code in the final webpage by pressing F
 Samples of the task board application can seen below:
 
 ### Task Board
-#### Empty
 ![Sample of webpage with no tasks populated](./docs/sample-no-tasks.png)
+![Sample of webpage app with tasks populated](./docs/sample-tasks-populated.png)
 
+![Add task modal](./docs/sample-modal-add-task.png)
+
+![Form modal prompting user to enter required field](./docs/sample-modal-error.png)
+
+![Local storage data example](./docs/sample-local-storage-data.png)
 ## User Story
 
 ```md
