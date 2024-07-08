@@ -30,15 +30,20 @@ This application uses a wide array of 3rd party web-driven APIs. See below for t
 ## Deploy
 This repository contains the source code for the webpage, written in HTML, CSS and JavaScript and various 3rd party APIs. The final rendered webpage can be located at https://kevinvongmany.github.io/task-board-manager/.
 
-Additionally users can access the source code in the final webpage by pressing F12, CTRL+SHIFT+I (Windows) or CMD+SHIFT+I (MacOS) on any Chrome/Firefox browsers (or any Chromium driven browser). Alternatively modern web browsers can access the source code through the context menu (right-click) -> View page source.
+Additionally users can access the source code in the final webpage by pressing `F12`, `CTRL+SHIFT+I` (Windows) or `CMD+SHIFT+I` (MacOS) on any Chrome/Firefox browsers (or any Chromium driven browser). Alternatively modern web browsers can access the source code through the context menu (right-click) -> View page source.
 
 ## Samples
 Samples of the task board application can seen below:
 
 ### Task Board
-#### Empty
 ![Sample of webpage with no tasks populated](./docs/sample-no-tasks.png)
+![Sample of webpage app with tasks populated](./docs/sample-tasks-populated.png)
 
+![Add task modal](./docs/sample-modal-add-task.png)
+
+![Form modal prompting user to enter required field](./docs/sample-modal-error.png)
+
+![Local storage data example](./docs/sample-local-storage-data.png)
 ## User Story
 
 ```md
